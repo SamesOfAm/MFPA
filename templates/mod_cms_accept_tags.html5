@@ -1,0 +1,118 @@
+<!-- indexer::stop -->
+<div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?> data-cms-id="<?= $this->cmsID; ?>" role="dialog" aria-modal="true">
+
+    <form<?php if ($this->action): ?> action="<?= $this->action ?>"<?php endif; ?> method="post">
+        <div class="formbody">
+
+            <input type="hidden" name="FORM_SUBMIT" value="<?= $this->formId ?>" />
+            <input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}" />
+
+            <div class="info">
+                <?= $this->content; ?>
+                <?php $this->block('info'); ?>
+                <?php $this->endblock(); ?>
+            </div>
+
+            <div class="widget widget-submit">
+                <button type="submit" name="choice" value="accept" class="submit<?= ($this->acceptAllLabel)?' first':''; ?>" tabindex="<?= count($this->tags)+1; ?>">
+                    <?= $this->acceptLabel ?>
+                </button>
+                <button type="submit" name="choice" value="accept" class="submit all" data-all="true" tabindex="<?= count($this->tags)+2; ?>">
+                    <?= $this->acceptAllLabel ?>
+                </button>
+                <?php $this->block('buttons'); ?>
+                <?php $this->endblock(); ?>
+            </div>
+        </div>
+
+        <div class="show-settings">
+            <a href="#" onclick="toggleSettings(event);">Einstellungen</a>
+        </div>
+
+        <div class="tags">
+            <?php foreach( $this->tags as $key => $tag ): ?>
+                <div role="group" aria-labelledby="group_head_<?= $tag['id']; ?> group_desc_<?= $tag['id']; ?>">
+                    <div class="head">
+                        <span id="group_head_<?= $tag['id']; ?>"><?= $tag['name']; ?></span>
+                        <?php if( !$tag['required'] ): ?>
+                            <input id="cookie_<?= $tag['id']; ?>" type="checkbox" name="cookie_<?= $tag['id']; ?>" value="<?= $tag['id']; ?>" <?php if( $tag['accepted'] ): ?>checked<?php endif; ?> />
+                            <label for="cookie_<?= $tag['id']; ?>" tabindex="<?= $key+1; ?>" onKeyPress="var c = document.getElementById('cookie_<?= $tag['id']; ?>'); c.checked = !c.checked; this.setAttribute('aria-checked',c.checked); return false;" onClick="var c = document.getElementById('cookie_<?= $tag['id']; ?>'); this.setAttribute('aria-checked',!c.checked);">
+                                <span role="checkbox" aria-checked="<?= ($tag['accepted']) ? 'true':'false'; ?>"></span>
+                            </label>
+                        <?php endif; ?>
+                    </div>
+                    <div class="description" id="group_desc_<?= $tag['id']; ?>">
+                        <?= $tag['description']; ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </form>
+
+    <script>
+
+        if( !navigator.cookieEnabled ) {
+            document.querySelector('[data-cms-id="<?= $this->cmsID; ?>"]').remove();
+        }
+
+        var as = document.querySelectorAll('[data-cms-id="<?= $this->cmsID; ?>"] .info a');
+
+        [].forEach.call(as, function(a){
+
+            if( a && !a.tabIndex ) {
+                a.tabIndex = 1;
+            }
+        });
+
+        <?php if( $this->acceptAllLabel ): ?>
+
+            var buttonAll = document.querySelector('[data-cms-id="<?= $this->cmsID; ?>"] button[data-all]');
+
+            if( buttonAll ) {
+
+                buttonAll.addEventListener('click', function(e){
+
+                    e.preventDefault();
+
+                    var checkboxes = document.querySelectorAll('[data-cms-id="<?= $this->cmsID; ?>"] input[type="checkbox"]');
+
+                    if( checkboxes ) {
+
+                        [].forEach.call(checkboxes, function(c){
+                            c.checked = true;
+                        });
+                    }
+
+                    var form = document.querySelector('[data-cms-id="<?= $this->cmsID; ?>"] form');
+
+                    if( form ) {
+                        form.submit();
+                    }
+
+                });
+            }
+
+        <?php endif; ?>
+
+        let settingsShown = false;
+
+        function toggleSettings(e) {
+            const tagDiv = document.querySelector('.tags');
+            if(settingsShown){
+                e.preventDefault();
+                tagDiv.style.display = 'none';
+                settingsShown = false;
+            } else {
+                e.preventDefault();
+                tagDiv.style.display = 'flex';
+                settingsShown = true;
+            }
+        }
+
+    </script>
+
+    <?php $this->block('after'); ?>
+    <?php $this->endblock(); ?>
+
+</div>
+<!-- indexer::continue -->

@@ -1,0 +1,161 @@
+@import 'variables';
+@import 'menu';
+@import 'header';
+@import 'main';
+@import 'accordion';
+@import 'footer';
+@import 'news';
+@import 'project';
+@import 'team-member';
+@import 'optin';
+
+body {
+  font-family: 'Barlow', sans-serif;
+  color: $dark-blue;
+  font-weight: normal;
+  letter-spacing: 1px;
+  font-size: 17px;
+}
+
+.mod_article {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+h2:not(.h2link) {
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 20px 15px;
+  border-bottom: 1px solid;
+  display: inline-block;
+  font-weight: 100;
+  letter-spacing: 2px;
+  font-size: 30px;
+}
+
+h2.ce_headline.text-centered {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.after-h2.ce_text {
+  margin-top: 80px;
+}
+
+.h2link {
+  display: inline-block;
+  a {
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0 20px 15px;
+    border-bottom: 1px solid;
+    display: inline-block;
+    font-weight: 100;
+    letter-spacing: 2px;
+    font-size: 30px;
+    text-decoration: none;
+    transition: padding 500ms ease-out;
+    &:hover {
+      padding: 0 45px 15px;
+    }
+  }
+  &.blue a {
+    color: $dark-blue;
+  }
+  &.white a {
+    color: white;
+  }
+}
+
+h2 {
+  word-wrap: anywhere;
+}
+
+.ce_text {
+  width: 80%;
+  max-width: $content-width;
+  margin: 40px auto;
+  &.text-centered {
+    text-align: center;
+    overflow: visible;
+    > p {
+      width: 100%;
+      max-width: $small-width;
+      margin: 1em auto;
+    }
+    p a {
+      color: $bright-blue;
+      text-decoration: none;
+      transition: color 250ms;
+      &:hover {
+        color: $dark-blue;
+      }
+    }
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.small-width {
+  width: 80%;
+  max-width: $small-width;
+  h3 {
+    margin-top: 50px;
+    text-transform: uppercase;
+    color: $dark-blue;
+    font-weight: normal;
+  }
+}
+
+.section-intro > p {
+  color: $bright-blue;
+  padding-top: 10px;
+  &:nth-child(2) {
+    border-top: 1px solid;
+  }
+  a {
+    color: $dark-blue;
+    text-decoration: none;
+    transition: color 250ms;
+    &:hover {
+      color: $bright-blue;
+    }
+  }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: block;
+}
+
+@media screen and (max-width: $tablet) {
+  .mobile-only {
+    display: block;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  h2, h2:not(.h2link),.h2link a {
+    font-size: 20px;
+  }
+
+  .text-centered {
+    width: 80%;
+    margin: 40px auto;
+  }
+}

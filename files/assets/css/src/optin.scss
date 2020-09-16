@@ -1,0 +1,54 @@
+@import 'variables';
+
+body .mod_cms_accept_tags {
+  form {
+    max-height: initial;
+    > .tags {
+      display: none;
+      > div .head {
+        input:checked + label {
+          background: $bright-blue !important;
+        }
+        label {
+          outline: none;
+        }
+      }
+    }
+    .formbody .info a {
+      color: $bright-blue;
+      transition: color 250ms;
+      &:hover {
+        color: $dark-blue;
+      }
+    }
+    .submit.first {
+      background-color: white !important;
+      border: 1px solid $bright-blue;
+      color: black;
+      cursor: pointer;
+      transition: border-color 250ms;
+      &:hover {
+        border-color: $dark-blue;
+      }
+    }
+  }
+  button[data-all="true"] {
+    cursor: pointer;
+    background-color: $dark-blue !important;
+    transition: background-color 250ms;
+    &:hover {
+      background-color: $bright-blue !important;
+    }
+  }
+}
+
+.show-settings {
+  padding: 15px;
+  a {
+    color: $bright-blue;
+    transition: color 250ms;
+    &:hover {
+      color: $dark-blue;
+    }
+  }
+}

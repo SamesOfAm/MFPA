@@ -1,0 +1,24 @@
+
+<div class="layout_latest arc_<?= $this->archive->id ?> block<?= $this->class ?>" itemscope itemtype="http://schema.org/Article">
+
+  <?php if ($this->hasMetaFields): ?>
+
+      <p class="info">
+          <span class="weekday"><?php echo $this->parseDate("D", $this->timestamp); ?></span>
+          <span class="day"><?php echo $this->parseDate("j.", $this->timestamp); ?></span>
+          <span class="month"><?php echo $this->parseDate("M", $this->timestamp); ?></span>
+          <span class="year"><?php echo $this->parseDate("Y", $this->timestamp); ?></span>
+      </p>
+  <?php endif; ?>
+
+  <h3 itemprop="name"><?= $this->linkHeadline ?></h3>
+
+  <div class="ce_text block" itemprop="description">
+    <?= $this->teaser ?>
+  </div>
+
+  <?php if ($this->hasText || $this->hasTeaser): ?>
+    <p class="more"><?= $this->more ?></p>
+  <?php endif; ?>
+
+</div>

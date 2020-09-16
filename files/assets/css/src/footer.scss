@@ -1,0 +1,131 @@
+@import 'variables';
+
+footer {
+  color: white;
+  height: 650px;
+  padding: 40px 0;
+  border-bottom: 40px solid $bright-blue;
+  background: url('../layout/layer-bg-footer.png') no-repeat left -400px, url('../layout/footer-bg.svg') no-repeat 65vw center, linear-gradient(to right, $dark-blue, $dark-blue 60%, $bright-blue);
+  .inside {
+    with: 80%;
+    max-width: $content-width;
+    margin: 40px auto;
+  }
+}
+
+.logo-footer {
+  figure {
+    width: 250px;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.footer-middle {
+  display: flex;
+  width: 65%;
+  > div {
+    width: 50%;
+  }
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    li {
+      position: relative;
+      margin: 20px 0;
+      padding-left: 35px;
+      &:before {
+        position: absolute;
+        content: '\2192';
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        transition: left 250ms;
+      }
+      a, strong {
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+      &:not(.active):hover:before {
+        left: 15px;
+      }
+    }
+  }
+}
+
+.info-footer {
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+footer .ce_form {
+  position: absolute;
+  top: 38px;
+  right: 0;
+  form {
+    width: 250px;
+    .formbody {
+      position: relative;
+      .widget-text {
+        input {
+          width: 90%;
+          padding: 8px 11px;
+          border: none;
+          border-radius: 20px;
+          background-color: $bright-blue;
+          font-family: 'Roboto', sans-serif;
+          color: white;
+          outline: none;
+          letter-spacing: 0.5px;
+          font-size: 13px;
+        }
+      }
+      .widget-submit {
+        position: absolute;
+        top: 5px;
+        right: 20px;
+        input {
+          width: 20px;
+        }
+      }
+    }
+  }
+}
+
+::placeholder {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: $tablet) {
+  .logo-footer figure {
+    width: 200px;
+    margin-left: 10vw;
+  }
+
+  footer {
+    height: auto;
+    padding: 10px 0;
+    background: linear-gradient(to right, #10286e, #1860a3);
+    border-bottom: 25px solid #00aeef;
+    .ce_form {
+      display: none;
+    }
+  }
+
+  .footer-middle {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    > div {
+      width: 100%;
+    }
+  }
+}

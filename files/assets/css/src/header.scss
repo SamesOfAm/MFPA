@@ -1,0 +1,210 @@
+@import 'variables';
+
+header .inside {
+  position: relative;
+  background: $bright-blue;
+  height: 40px;
+  z-index: 20;
+}
+
+.mobile_menu .inner .menu-header .mod_customnav {
+  width: 500px;
+  margin-right: 25px;
+  ul {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-transform: uppercase;
+    li {
+      align-self: center;
+      text-align: center;
+      &:not(:first-child) {
+        padding-left: 25px;
+        border-left: 1px solid white;
+      }
+      a {
+        position: relative;
+        color: white;
+        text-decoration: none;
+        font-weight: normal;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: white;
+          transition: width 250ms;
+        }
+        &:hover:after {
+          width: 100%;
+        }
+      }
+      strong {
+        position: relative;
+        color: white;
+        text-decoration: none;
+        font-weight: normal;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: white;
+          transition: width 250ms;
+        }
+      }
+    }
+  }
+}
+
+.header-navigation-wrapper {
+  display: flex;
+  position: relative;
+  width: $content-width;
+  height: 40px;
+  margin: 0 auto;
+  background: $dark-blue;
+  .header-navigation-left {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  > nav {
+    display: inline-block;
+    height: 40px;
+  }
+  .mod_customnav {
+    width: 500px;
+    margin-right: 25px;
+    ul {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      text-transform: uppercase;
+      li {
+        align-self: center;
+        text-align: center;
+        &:not(:first-child) {
+          padding-left: 25px;
+          border-left: 1px solid white;
+        }
+        a {
+          position: relative;
+          color: white;
+          text-decoration: none;
+          font-weight: normal;
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 250ms;
+          }
+          &:hover:after {
+            width: 100%;
+          }
+        }
+        strong {
+          position: relative;
+          color: white;
+          text-decoration: none;
+          font-weight: normal;
+          &:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: white;
+            transition: width 250ms;
+          }
+        }
+      }
+    }
+  }
+}
+
+.fontsizer {
+  position: absolute;
+  top: 9px;
+  right: 60px;
+  a {
+    color: white;
+    text-decoration: none;
+    &:first-child {
+      font-size: 12px;
+    }
+    &:last-child {
+      font-size: 18px;
+    }
+  }
+}
+
+.contrast-button {
+  position: absolute;
+  top: 7px;
+  right: 20px;
+  img {
+    width: 25px;
+  }
+}
+
+.mod_changelanguage {
+  ul {
+    display: flex;
+    height: 100%;
+    li {
+      align-self: center;
+      width: 75px;
+      text-align: center;
+      border-left: 1px solid white;
+      padding-left: 25px;
+      a {
+        position: relative;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background: white;
+          transition: width 250ms;
+        }
+        &:hover:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  header .inside {
+    height: 25px;
+  }
+
+  .header-navigation-wrapper {
+    display: none;
+  }
+}
+

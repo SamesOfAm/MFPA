@@ -1,0 +1,72 @@
+@import 'variables';
+
+.ce_accordion.ce_text {
+  width: 80%;
+  max-width: $small-width;
+  margin: 40px auto;
+  .accordion {
+    width: $small-width;
+    margin: 0 auto;
+    .ce_text {
+      width: initial;
+      max-width: initial;
+      margin: initial;
+    }
+    p {
+      a {
+        color: $bright-blue;
+        text-decoration: none;
+        transition: color 250ms;
+        &:hover {
+          color: $brighter-blue;
+        }
+      }
+    }
+  }
+}
+
+.toggler {
+  position: relative;
+  margin: 0 auto;
+  padding: 12px 40px 12px 0;
+  cursor: pointer;
+  outline: none;
+  color: $dark-blue;
+  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1.4em;
+  transition: color 250ms;
+  &:after {
+    position: absolute;
+    content: '';
+    background: url('../layout/accordion-arrow.svg') no-repeat;
+    top: 50%;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    transform: translateY(-50%);
+    transition: transform 250ms;
+  }
+  &.active:after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  &:hover {
+    color: $bright-blue;
+  }
+  h4 {
+    padding-right: 40px;
+    margin-bottom: 0;
+  }
+  p {
+    text-transform: none;
+    font-weight: 200;
+    margin-top: 0;
+    padding-right: 40px;
+  }
+}
+
+.ce_accordionStart {
+  width: 80%;
+  max-width: $content-width;
+  margin: 0 auto;
+}

@@ -1,0 +1,11 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
+  <?php if ($this->header): ?>
+    <p class="header"><?= $this->header ?> (<?= $this->duration ?>)</p>
+  <?php endif; ?>
+
+  <?= $this->results . $this->pagination ?>
+
+<?php $this->endblock(); ?>

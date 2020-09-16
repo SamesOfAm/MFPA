@@ -1,0 +1,55 @@
+@import 'variables';
+
+.project {
+  width: 80%;
+  max-width: $small-width;
+  margin: 0 auto;
+  h4 {
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+  p span:first-child {
+    text-transform: uppercase;
+    color: $bright-blue;
+    a {
+      color: $bright-blue;
+      transition: color 250ms;
+      &:hover {
+        color: $dark-blue;
+      }
+    }
+  }
+}
+
+.close-button a {
+  display: inline-block;
+  position: relative;
+  margin: 35px 0;
+  padding-left: 40px;
+  color: $bright-blue;
+  text-transform: uppercase;
+  transition: color 250ms;
+  &:hover {
+    color: $dark-blue;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: url("../layout/close.svg") no-repeat;
+  }
+}
+
+.sponsor-logos {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  img {
+    width: 30%;
+    max-width: 150px;
+    align-self: center;
+  }
+}

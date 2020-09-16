@@ -1,0 +1,84 @@
+<?php if($_GET['do'] === 'metamodel_mm_projects'): ?>
+    <?=  $this->data[0]['text']['name'] ?>
+<?php else : ?>
+
+    <?php if (count($this->data)): ?>
+            <div class="layout_full project">
+                <?php foreach ($this->data as $arrItem): ?>
+                    <?php $this->block('item'); ?>
+                        <section class="ce_accordionSingle ce_accordion block">
+                            <div class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false" tabindex="0">
+                                <h4><?= $arrItem['text']['name']; ?></h4>
+                                <p><?= substr($arrItem['text']['description'],0,strpos($arrItem['text']['description'], ".", strpos($arrItem['text']['description'], ".")+1)) . "."; ?></p>
+                            </div>
+                            <div class="accordion item <?= $arrItem['class'] ?>">
+                                <p>
+                                    <img src="<?= $arrItem['text']['image'] ?>">
+                                </p>
+                                <p>
+                                    <span>Fördermittelgeber</span><br>
+                                    <span><?= nl2br($arrItem['text']['sponsor']); ?></span>
+                                </p>
+                                <p>
+                                    <span>Projektträger</span><br>
+                                    <span><?= nl2br($arrItem['text']['carrier']); ?></span>
+                                </p>
+                                <p>
+                                    <span>Projektleiter</span><br>
+                                    <span><?= nl2br($arrItem['text']['director']); ?></span>
+                                </p>
+                                <p>
+                                    <span>Partner</span><br>
+                                    <span><?= nl2br($arrItem['text']['partner']); ?></span>
+                                </p>
+                                <p>
+                                    <span>Laufzeit</span><br>
+                                    <span><?= $this->parseDate("M", $arrItem['raw']['start']); ?> <?= $this->parseDate("Y", $arrItem['raw']['start']); ?> - <?= $this->parseDate("M", $arrItem['raw']['end']); ?> <?= $this->parseDate("Y", $arrItem['raw']['end']); ?></span>
+                                </p>
+                                <p>
+                                    <span>Kurzfassung</span><br>
+                                    <span><?= nl2br($arrItem['text']['description']); ?></span>
+                                </p>
+                                <p>
+                                    <span><a target="_blank" href="<?= $arrItem['text']['paper'] ?>">&rarr; Download Abhandlung</a></span><br>
+                                </p>
+                                <div class="close-button">
+                                    <a href="#" onclick="closeAccordion(event);">Schließen</a>
+                                </div>
+                                <hr>
+                                <div class="sponsor-logos">
+                                    <?php foreach($arrItem['raw']['logos']['path'] as $image): ?>
+                                        <img src="<?= $image ?>">
+                                    <?php endforeach; ?>
+                                </div>
+                                <p>
+                                    <?php // echo var_dump($arrItem); ?>
+                                </p>
+                                <?php $this->block('actions'); ?>
+                                    <div class="actions">
+                                        <?php foreach($arrItem['actions'] as $action): ?>
+                                        <?php $this->insert('mm_actionbutton', ['action' => $action]); ?>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php $this->endblock(); ?>
+                            </div>
+                        </section>
+                    <?php $this->endblock(); ?>
+                <?php endforeach; ?>
+            </div>
+    <?php else : ?>
+        <?php $this->block('noItem'); ?>
+            <p class="info"><?= $this->noItemsMsg ?></p>
+        <?php $this->endblock(); ?>
+    <?php endif; ?>
+
+<?php endif; ?>
+<script>
+    function closeAccordion(event) {
+        event.preventDefault();
+        const toggler = event.target.parentElement.parentElement.parentElement.firstElementChild;
+        toggler.click();
+        jQuery('html, body').animate({scrollTop:toggler.offsetTop},800);
+    }
+</script>
+
