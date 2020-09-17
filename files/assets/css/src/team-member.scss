@@ -32,6 +32,10 @@
         text-transform: uppercase;
         margin-bottom: 10px;
       }
+      &.wide {
+        width: 100%;
+        margin-left: 0;
+      }
     }
     span {
       display: block;

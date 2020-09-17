@@ -12,9 +12,31 @@
                                 <p><?= substr($arrItem['text']['description'],0,strpos($arrItem['text']['description'], ".", strpos($arrItem['text']['description'], ".")+1)) . "."; ?></p>
                             </div>
                             <div class="accordion item <?= $arrItem['class'] ?>">
+                            <?php if(sizeof($arrItem['raw']['image']['value']['path']) > 1): ?>
+                                <div class="slider">
+                                    <div class="ce_sliderStart block">
+                                        <div class="content-slider" data-config="3000,400,0,1" style="visibility: visible;">
+                                            <div class="slider-wrapper" style="width: 2440px;">
+                                                <?php foreach($arrItem['raw']['image']['value']['path'] as $image): ?>
+                                                    <div class="ce_image block" data-index="0" style="width: 1220px; left: 0px; transition-duration: 0ms; transform: translate(0px, 0px) translateZ(0px);">
+                                                        <figure class="image_container">
+                                                            <img src="<?= $image; ?>" width="1613" height="1080" alt="" itemprop="image">
+                                                        </figure>
+                                                    </div>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                        <nav class="slider-control">
+                                            <a href="#" class="slider-prev"><img src="files/assets/layout/circle-arrow.svg" ></a>
+                                            <a href="#" class="slider-next"><img src="files/assets/layout/circle-arrow.svg" ></a>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <?php else : ?>
                                 <p>
-                                    <img src="<?= $arrItem['text']['image'] ?>">
+                                    <img src="<?= $arrItem['raw']['image']['value']['path'][0] ?>">
                                 </p>
+                                <?php endif; ?>
                                 <p>
                                     <span>Fördermittelgeber</span><br>
                                     <span><?= nl2br($arrItem['text']['sponsor']); ?></span>
@@ -39,21 +61,20 @@
                                     <span>Kurzfassung</span><br>
                                     <span><?= nl2br($arrItem['text']['description']); ?></span>
                                 </p>
-                                <p>
-                                    <span><a target="_blank" href="<?= $arrItem['text']['paper'] ?>">&rarr; Download Abhandlung</a></span><br>
-                                </p>
+                                <?php if($arrItem['text']['paper'] !== NULL): ?>
+                                    <p>
+                                        <span><a target="_blank" href="<?= $arrItem['text']['paper']['value']['path'] ?>">&rarr; Download Abhandlung</a></span><br>
+                                    </p>
+                                <?php endif; ?>
                                 <div class="close-button">
                                     <a href="#" onclick="closeAccordion(event);">Schließen</a>
                                 </div>
                                 <hr>
                                 <div class="sponsor-logos">
-                                    <?php foreach($arrItem['raw']['logos']['path'] as $image): ?>
+                                    <?php foreach($arrItem['raw']['logos']['value']['path'] as $image): ?>
                                         <img src="<?= $image ?>">
                                     <?php endforeach; ?>
                                 </div>
-                                <p>
-                                    <?php // echo var_dump($arrItem); ?>
-                                </p>
                                 <?php $this->block('actions'); ?>
                                     <div class="actions">
                                         <?php foreach($arrItem['actions'] as $action): ?>

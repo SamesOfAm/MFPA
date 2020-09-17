@@ -3,8 +3,8 @@
         <?php foreach ($this->data as $arrItem): ?>
             <?php $this->block('item'); ?>
                 <div class="item <?= $arrItem['class'] ?>">
-                    <div class="member-image" style="background:url('<?= $arrItem['text']['image']; ?>') 50% 50%/cover no-repeat"></div>
-                    <div class="member-info">
+                    <?php if($arrItem['text']['image'] !== ''): ?><div class="member-image" style="background:url('<?= $arrItem['text']['image']; ?>') 50% 50%/cover no-repeat"></div><?php endif; ?>
+                    <div class="<?php if($arrItem['text']['image'] === ''): ?>wide <?php endif; ?>member-info">
                         <span class="name"><?= $arrItem['text']['name']; ?></span>
                         <span class="position"><?= $arrItem['text']['position']; ?></span>
                         <span class="department"><?= $arrItem['text']['department']; ?></span>

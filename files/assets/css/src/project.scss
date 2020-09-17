@@ -19,6 +19,23 @@
       }
     }
   }
+  .ce_sliderStart {
+    position: relative;
+    .slider-control {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 95%;
+      height: 50px;
+      transform: translateY(-50%) translateX(-50%);
+      img {
+        width: 50px;
+      }
+      .slider-prev {
+        transform: rotate(180deg);
+      }
+    }
+  }
 }
 
 .close-button a {
