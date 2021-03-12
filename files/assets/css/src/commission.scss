@@ -1,0 +1,17 @@
+@import 'variables';
+
+.commission-list {
+  width: 80%;
+  max-width: $small-width;
+  margin: 40px auto;
+  table td {
+    padding: 15px 0;
+    vertical-align: top;
+    p {
+      margin: 0;
+    }
+    &:first-child {
+      font-weight: bold;
+    }
+  }
+}

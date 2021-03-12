@@ -1,0 +1,39 @@
+<?php if($_GET['do'] === 'metamodel_mm_jobs'): ?>
+    <strong><?= $this->data[0]['raw']['type']['name']; ?></strong>: <?=  $this->data[0]['text']['title'] ?>
+<?php else : ?>
+
+    <?php if (count($this->data)): ?>
+            <div class="layout_full job-list">
+                <?php foreach ($this->data as $arrItem): ?>
+                    <?php $startDate = gmdate("d.m.Y", $arrItem['raw']['startDate']); ?>
+                    <?php $this->block('item'); ?>
+                    <section class="ce_accordionSingle ce_accordion job block">
+                        <div class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false" tabindex="0">
+                            <?= $arrItem['raw']['title']; ?>
+                        </div>
+                        <div class="accordion item">
+                            <p>
+                                Die Materialforschungs- und -prüfanstalt an der Bauhaus-Universität Weimar ist eine außeruniversitäre Forschungseinrichtung und amtliche Prüfstelle in Thüringen. Mit ungefähr 110 Mitarbeitern werden anwendungsorientierte Forschungsprojekte bearbeitet, Prüfungen, Überwachungen, Zertifizierungen durchgeführt sowie Gutachten erstellt. Die MFPA gehört zum Geschäftsbereich des Thüringer Ministeriums für Wirtschaft, Wissenschaft und Digitale Gesellschaft.
+                            </p>
+                            <p>
+                                An der Materialforschungs- und -prüfanstalt an der Bauhaus-Universität Weimar <?php if($arrItem['raw']['amount'] > 1): ?>sind<?php else: ?>ist<?php endif; ?> zum <strong><?= $startDate ?></strong> folgende <strong><?php if($arrItem['raw']['amount'] > 1): ?><?= $arrItem['raw']['amount'] ?><?php endif; ?> <?php if($arrItem['raw']['type']['alias'] == 'job'): ?>Arbeitsstelle<?php else: ?>Ausbildungsstelle<?php endif; ?><?php if($arrItem['raw']['amount'] > 1): ?>n<?php endif; ?></strong> zu besetzen:
+                            </p>
+                            <p>
+                                <strong><?= $arrItem['raw']['title'] ?></strong>
+                            </p>
+                            <div class="job-description">
+                                <?= $arrItem['raw']['description']['value']; ?>
+                            </div>
+                        </div>
+                    </section>
+                    <?php $this->endblock(); ?>
+                <?php endforeach; ?>
+            </div>
+    <?php else : ?>
+        <?php $this->block('noItem'); ?>
+            <p class="info"><?= $this->noItemsMsg ?></p>
+        <?php $this->endblock(); ?>
+    <?php endif; ?>
+
+<?php endif; ?>
+

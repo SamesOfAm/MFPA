@@ -1,0 +1,79 @@
+<?php if($_GET['do'] === 'metamodel_mm_projektsteckbrief'): ?>
+    <?=  $this->data[0]['text']['title'] ?>
+<?php else : ?>
+
+    <?php if (count($this->data)): ?>
+            <div class="layout_full commission-list">
+                <?php foreach ($this->data as $arrItem): ?>
+
+
+                    <section class="ce_accordionSingle ce_accordion block">
+                        <div class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false" tabindex="0">
+                            <?= $arrItem['raw']['title']; ?>
+                        </div>
+                        <div class="accordion item">
+                            <table>
+                                <tr>
+                                    <td>
+                                        Vergabestelle
+                                    </td>
+                                    <td>
+                                        <?= $arrItem['raw']['issuedBy']['value']; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Vergabenummer
+                                    </td>
+                                    <td>
+                                        <?= $arrItem['raw']['number']; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Vergabeverfahren
+                                    </td>
+                                    <td>
+                                        <?= $arrItem['raw']['method']; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Auftragsgegenstand
+                                    </td>
+                                    <td>
+                                        <?= $arrItem['raw']['item']; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Auftragnehmer
+                                    </td>
+                                    <td>
+                                        <?= $arrItem['raw']['deliveredBy']['value']; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Zeitraum Leistungserbringung
+                                    </td>
+                                    <td>
+                                        <?= $arrItem['raw']['timeframe']; ?>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </section>
+
+
+
+                <?php endforeach; ?>
+            </div>
+    <?php else : ?>
+        <?php $this->block('noItem'); ?>
+            <p class="info"><?= $this->noItemsMsg ?></p>
+        <?php $this->endblock(); ?>
+    <?php endif; ?>
+
+<?php endif; ?>
+
