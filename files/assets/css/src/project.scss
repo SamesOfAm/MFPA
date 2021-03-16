@@ -35,6 +35,16 @@
         transform: rotate(180deg);
       }
     }
+    .ce_image {
+      height: 400px;
+      figure {
+        height: 100%;
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
   }
 }
 
@@ -68,5 +78,11 @@
     width: 30%;
     max-width: 150px;
     align-self: center;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .project .ce_sliderStart .ce_image {
+    height: 200px;
   }
 }

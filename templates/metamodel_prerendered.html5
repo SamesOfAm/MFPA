@@ -38,19 +38,19 @@
                                 </p>
                                 <?php endif; ?>
                                 <p>
-                                    <span>Fördermittelgeber</span><br>
+                                    <span>Fördermittelgeber/in</span><br>
                                     <span><?= nl2br($arrItem['text']['sponsor']); ?></span>
                                 </p>
                                 <p>
-                                    <span>Projektträger</span><br>
+                                    <span>Projektträger/in</span><br>
                                     <span><?= nl2br($arrItem['text']['carrier']); ?></span>
                                 </p>
                                 <p>
-                                    <span>Projektleiter</span><br>
-                                    <span><?= nl2br($arrItem['text']['director']); ?></span>
+                                    <span>Projektleiter/in</span><br>
+                                    <span><?= nl2br($arrItem['text']['teamlead']); ?></span>
                                 </p>
                                 <p>
-                                    <span>Partner</span><br>
+                                    <span>Partner/innen</span><br>
                                     <span><?= nl2br($arrItem['text']['partner']); ?></span>
                                 </p>
                                 <p>
