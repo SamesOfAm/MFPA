@@ -1,0 +1,17 @@
+@import 'variables';
+
+.training {
+  width: 80%;
+  max-width: $small-width;
+  margin: 40px auto;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  ul {
+    padding-left: 20px;
+    list-style-type: disc;
+    li {
+      padding-left: 10px;
+    }
+  }
+}

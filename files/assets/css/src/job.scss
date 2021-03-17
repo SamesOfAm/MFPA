@@ -14,6 +14,14 @@
       padding-left: 10px;
     }
   }
+  .download-job a {
+    text-transform: uppercase;
+    color: $bright-blue;
+    transition: color 250ms;
+    &:hover {
+      color: $dark-blue;
+    }
+  }
 }
 
 .job-description p a {

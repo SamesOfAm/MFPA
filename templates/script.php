@@ -46,8 +46,8 @@
 
     const darkBlue = '#0d2067';
     const brightBlue = '#00AEEF';
+    let highContrast = false;
 
-        let highContrast = false;
     function toggleContrast() {
         if(highContrast) {
             document.body.style.color = darkBlue;

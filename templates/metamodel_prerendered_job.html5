@@ -25,6 +25,9 @@
                                 <?= $arrItem['raw']['description']['value']; ?>
                             </div>
                         </div>
+                        <div class="download-job">
+                            <a href="<?= $arrItem['text']['download']; ?>">Stellenausschreibung herunterladen</a>
+                        </div>
                     </section>
                     <?php $this->endblock(); ?>
                 <?php endforeach; ?>

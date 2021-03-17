@@ -1,0 +1,80 @@
+<?php if($_GET['do'] === 'metamodel_mm_projects'): ?>
+    <?=  $this->data[0]['text']['name'] ?>
+<?php else : ?>
+
+    <?php if (count($this->data)): ?>
+            <div class="layout_full training">
+                <?php foreach ($this->data as $arrItem): ?>
+                    <?php $this->block('item'); ?>
+                        <section class="ce_accordionSingle ce_accordion block">
+                            <div class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false" tabindex="0">
+                                <h4><?= $arrItem['raw']['title']['value']; ?></h4>
+                            </div>
+                            <div class="accordion item <?= $arrItem['class'] ?>">
+                                <p>
+                                    <span>Dauer</span><br>
+                                    <span><?= nl2br($arrItem['raw']['duration']['value']); ?></span>
+                                </p>
+                                <p>
+                                    <span>Teilnehmergebühren</span><br>
+                                    <span><?= nl2br($arrItem['raw']['fee']['value']); ?></span>
+                                </p>
+                                <p>
+                                    <span>Abschluss</span><br>
+                                    <span><?= nl2br($arrItem['raw']['certificate']['value']); ?></span>
+                                </p>
+                                <p>
+                                    <span>Termine</span><br>
+                                    <span>
+                                        <?= nl2br($arrItem['raw']['date1desc']['value']); ?>
+                                        <?= nl2br($arrItem['raw']['date1from']['value']); ?>
+                                        <?= nl2br($arrItem['raw']['date1to']['value']); ?>
+                                        <?= nl2br($arrItem['raw']['date2desc']['value']); ?>
+                                        <?= nl2br($arrItem['raw']['date2from']['value']); ?>
+                                        <?= nl2br($arrItem['raw']['date2to']['value']); ?>
+                                        <?= nl2br($arrItem['raw']['date3desc']['value']); ?>
+                                        <?= nl2br($arrItem['raw']['date3from']['value']); ?>
+                                        <?= nl2br($arrItem['raw']['date3to']['value']); ?>
+
+                                    </span>
+                                </p>
+                                <p>
+                                    <span>Teilnehmerkreis</span><br>
+                                    <span><?= nl2br($arrItem['raw']['audience']['value']); ?></span>
+                                </p>
+                                <p>
+                                    <span>Bemerkungen</span><br>
+                                    <span><?= nl2br($arrItem['raw']['notes']['value']); ?></span>
+                                </p>
+                                <div class="close-button">
+                                    <a href="#" onclick="closeAccordion(event);">Schließen</a>
+                                </div>
+                                <hr>
+                                <?php $this->block('actions'); ?>
+                                    <div class="actions">
+                                        <?php foreach($arrItem['actions'] as $action): ?>
+                                        <?php $this->insert('mm_actionbutton', ['action' => $action]); ?>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php $this->endblock(); ?>
+                            </div>
+                        </section>
+                    <?php $this->endblock(); ?>
+                <?php endforeach; ?>
+            </div>
+    <?php else : ?>
+        <?php $this->block('noItem'); ?>
+            <p class="info"><?= $this->noItemsMsg ?></p>
+        <?php $this->endblock(); ?>
+    <?php endif; ?>
+
+<?php endif; ?>
+<script>
+    function closeAccordion(event) {
+        event.preventDefault();
+        const toggler = event.target.parentElement.parentElement.parentElement.firstElementChild;
+        toggler.click();
+        jQuery('html, body').animate({scrollTop:toggler.offsetTop},800);
+    }
+</script>
+
