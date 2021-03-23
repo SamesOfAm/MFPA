@@ -3,7 +3,15 @@
 .project {
   width: 80%;
   max-width: $small-width;
-  margin: 0 auto;
+  margin: 0 auto 60px;
+  section:first-child {
+    .toggler {
+      padding-top: 0;
+      h4 {
+        margin-top: 0;
+      }
+    }
+  }
   h4 {
     font-weight: normal;
     text-transform: uppercase;

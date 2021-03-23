@@ -9,9 +9,10 @@
                         <section class="ce_accordionSingle ce_accordion block">
                             <div class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false" tabindex="0">
                                 <h4><?= $arrItem['text']['name']; ?></h4>
-                                <p><?= substr($arrItem['text']['description'],0,strpos($arrItem['text']['description'], ".", strpos($arrItem['text']['description'], ".")+1)) . "."; ?></p>
+                                <p class="desktop-only"><?= substr($arrItem['text']['description'],0,strpos($arrItem['text']['description'], ".", strpos($arrItem['text']['description'], ".")+1)) . "."; ?></p>
                             </div>
                             <div class="accordion item <?= $arrItem['class'] ?>">
+                                <p class="mobile-only"><?= substr($arrItem['text']['description'],0,strpos($arrItem['text']['description'], ".", strpos($arrItem['text']['description'], ".")+1)) . "."; ?></p>
                                 <?php if(sizeof($arrItem['raw']['image']['value']['path']) > 1): ?>
                                     <div class="slider">
                                         <div class="ce_sliderStart block">

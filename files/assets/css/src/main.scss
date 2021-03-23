@@ -49,6 +49,7 @@ main {
         h3 {
           text-transform: uppercase;
           font-weight: 100;
+          color: white;
         }
       }
     }
@@ -71,6 +72,11 @@ main {
       }
     }
   }
+}
+
+.mod_article {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .mod_article.topics {
@@ -128,6 +134,13 @@ main {
   }
 }
 
+.mod_article > .ce_sliderStart.development-mobile {
+  width: 95%;
+  h3 {
+    color: white;
+  }
+}
+
 .lifecycle-graphic {
   width: $content-width;
   margin: 50px auto;
@@ -147,7 +160,7 @@ main {
 }
 
 .research-buttons {
-  width: 80%;
+  width: 90%;
   max-width: $content-width;
   margin: 0 auto;
   display: flex;
@@ -303,6 +316,9 @@ main {
       font-weight: normal;
       text-transform: uppercase;
     }
+    a {
+      color: white;
+    }
   }
 }
 
@@ -388,8 +404,13 @@ main {
     }
   }
 
-  .mod_article.topics {
-    background: white;
+  .mod_article {
+    &.topics {
+      display: none;
+    }
+    &.last {
+      margin-bottom: 120px;
+    }
   }
 
   .ce_text.topics-intro-wrapper {
@@ -397,10 +418,6 @@ main {
     a,p {
       color: $dark-blue;
     }
-  }
-
-  .topics-overview-table {
-    display: none;
   }
 
   .ce_text.topics-mobile {
@@ -434,8 +451,9 @@ main {
   }
 
   .research-development {
+    margin-top: -30px;
     padding: 10px 0;
-    background: url("../layout/stripe-bg-large.png") repeat-x 0 -150px,linear-gradient(to right, #10286e, #1860a3);
+    background: url("../layout/stripe-bg-large.png") repeat-x 0 -100px,linear-gradient(to right, #10286e, #1860a3);
   }
 
   .career {
@@ -476,25 +494,37 @@ main {
     .ce_sliderStart {
       position: relative;
       .content-slider {
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
-        .ce_text {
-          p {
-            text-align: center;
-            img {
-              width: 50vw;
-              height: 50vw;
-              border-radius: 50%;
-              border: 6px solid $bright-blue;
+        .slider-wrapper {
+          margin: 0 auto;
+          .ce_text {
+            h3 {
+              text-align: center;
+            }
+            p {
+              &:first-child {
+                text-align: center;
+                img {
+                  width: 50vw;
+                  height: 50vw;
+                  border-radius: 50%;
+                  border: 6px solid $bright-blue;
+                }
+              }
+              &:last-child {
+                width: 90%;
+                margin: 0 auto;
+              }
             }
           }
         }
       }
       .slider-control {
         position: absolute;
-        top: 50%;
+        top: 28%;
         left: 50%;
-        width: 90%;
+        width: 108%;
         transform: translateX(-50%) translateY(-50%);
       }
     }

@@ -173,8 +173,13 @@
     }
     .mod_form form {
       width: 100%;
-      .formbody .widget-text input {
-        width: 92%;
+      .formbody {
+        .widget-text input {
+          width: 92%;
+        }
+        .widget-submit {
+          right: 50px;
+        }
       }
     }
   }
@@ -192,5 +197,11 @@
   .menu-lists {
     flex-wrap: wrap;
     margin: 80px auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .mobile_menu .mod_form form .formbody .widget-submit {
+    right: 20px;
   }
 }

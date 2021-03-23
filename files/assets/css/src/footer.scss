@@ -28,30 +28,33 @@ footer {
   > div {
     width: 50%;
   }
-  nav ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    li {
-      position: relative;
-      margin: 20px 0;
-      padding-left: 35px;
-      &:before {
-        position: absolute;
-        content: '\2192';
-        top: 0;
-        left: 0;
-        width: 20px;
-        height: 20px;
-        transition: left 250ms;
-      }
-      a, strong {
-        color: white;
-        text-decoration: none;
-        text-transform: uppercase;
-      }
-      &:not(.active):hover:before {
-        left: 15px;
+  nav {
+    margin-top: 37px;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      li {
+        position: relative;
+        margin: 20px 0;
+        padding-left: 35px;
+        &:before {
+          position: absolute;
+          content: '\2192';
+          top: 0;
+          left: 0;
+          width: 20px;
+          height: 20px;
+          transition: left 250ms;
+        }
+        a, strong {
+          color: white;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
+        &:not(.active):hover:before {
+          left: 15px;
+        }
       }
     }
   }

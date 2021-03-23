@@ -11,41 +11,42 @@
                                 <h4><?= $arrItem['raw']['title']['value']; ?></h4>
                             </div>
                             <div class="accordion item <?= $arrItem['class'] ?>">
-                                <p>
-                                    <span>Dauer</span><br>
-                                    <span><?= nl2br($arrItem['raw']['duration']['value']); ?></span>
-                                </p>
-                                <p>
-                                    <span>Teilnehmergebühren</span><br>
-                                    <span><?= nl2br($arrItem['raw']['fee']['value']); ?></span>
-                                </p>
-                                <p>
-                                    <span>Abschluss</span><br>
-                                    <span><?= nl2br($arrItem['raw']['certificate']['value']); ?></span>
-                                </p>
-                                <p>
-                                    <span>Termine</span><br>
-                                    <span>
-                                        <?= nl2br($arrItem['raw']['date1desc']['value']); ?>
-                                        <?= nl2br($arrItem['raw']['date1from']['value']); ?>
-                                        <?= nl2br($arrItem['raw']['date1to']['value']); ?>
-                                        <?= nl2br($arrItem['raw']['date2desc']['value']); ?>
-                                        <?= nl2br($arrItem['raw']['date2from']['value']); ?>
-                                        <?= nl2br($arrItem['raw']['date2to']['value']); ?>
-                                        <?= nl2br($arrItem['raw']['date3desc']['value']); ?>
-                                        <?= nl2br($arrItem['raw']['date3from']['value']); ?>
-                                        <?= nl2br($arrItem['raw']['date3to']['value']); ?>
-
-                                    </span>
-                                </p>
-                                <p>
-                                    <span>Teilnehmerkreis</span><br>
-                                    <span><?= nl2br($arrItem['raw']['audience']['value']); ?></span>
-                                </p>
-                                <p>
-                                    <span>Bemerkungen</span><br>
-                                    <span><?= nl2br($arrItem['raw']['notes']['value']); ?></span>
-                                </p>
+                                <table>
+                                    <tr>
+                                        <td><strong>Dauer</strong></td>
+                                        <td><?= nl2br($arrItem['raw']['duration']['value']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Teilnehmergebühren</strong></td>
+                                        <td><?= nl2br($arrItem['raw']['fee']['value']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Abschluss</strong></td>
+                                        <td><?= nl2br($arrItem['raw']['certificate']['value']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Termine</strong></td>
+                                        <td>
+                                            <?= nl2br($arrItem['raw']['date1desc']['value']); ?>:<br>
+                                            <?= date("d. M. Y", $arrItem['raw']['date1from']); ?> -
+                                            <?= date("d. M. Y", $arrItem['raw']['date1to']); ?><br><br>
+                                            <?= nl2br($arrItem['raw']['date2desc']['value']); ?>:<br>
+                                            <?= date("d. M. Y", $arrItem['raw']['date2from']); ?> -
+                                            <?= date("d. M. Y", $arrItem['raw']['date2to']); ?><br><br>
+                                            <?= nl2br($arrItem['raw']['date3desc']['value']); ?>:<br>
+                                            <?= date("d. M. Y", $arrItem['raw']['date3from']['value']); ?> -
+                                            <?= date("d. M. Y", $arrItem['raw']['date3to']['value']); ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Teilnehmerkreis</strong></td><br>
+                                        <td><?= nl2br($arrItem['raw']['audience']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Bemerkungen</strong></td><br>
+                                        <td><?= nl2br($arrItem['raw']['notes']); ?></td>
+                                    </tr>
+                                </table>
                                 <div class="close-button">
                                     <a href="#" onclick="closeAccordion(event);">Schließen</a>
                                 </div>

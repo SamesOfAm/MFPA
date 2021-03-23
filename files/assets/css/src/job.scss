@@ -32,3 +32,9 @@
     color: $dark-blue;
   }
 }
+
+@media screen and (max-width: $tablet) {
+  .job:last-child {
+    margin-bottom: 40px;
+  }
+}

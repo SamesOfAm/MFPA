@@ -24,9 +24,12 @@
                             <div class="job-description">
                                 <?= $arrItem['raw']['description']['value']; ?>
                             </div>
-                        </div>
-                        <div class="download-job">
-                            <a href="<?= $arrItem['text']['download']; ?>">Stellenausschreibung herunterladen</a>
+                            <div class="download-job">
+                                <a href="<?= $arrItem['text']['download']; ?>">Stellenausschreibung herunterladen</a>
+                            </div>
+                            <div class="close-button">
+                                <a href="#" onclick="closeAccordion(event);">Schließen</a>
+                            </div>
                         </div>
                     </section>
                     <?php $this->endblock(); ?>
@@ -39,4 +42,12 @@
     <?php endif; ?>
 
 <?php endif; ?>
+<script>
+    function closeAccordion(event) {
+        event.preventDefault();
+        const toggler = event.target.parentElement.parentElement.parentElement.firstElementChild;
+        toggler.click();
+        jQuery('html, body').animate({scrollTop:toggler.offsetTop},800);
+    }
+</script>
 

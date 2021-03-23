@@ -13,7 +13,7 @@
 
   <h3 itemprop="name"><?= $this->linkHeadline ?></h3>
 
-  <div class="ce_text block" itemprop="description">
+  <div class="ce_text wide block" itemprop="description">
     <?= $this->teaser ?>
   </div>
 

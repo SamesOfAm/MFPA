@@ -14,4 +14,32 @@
       padding-left: 10px;
     }
   }
+  table {
+    tr {
+      td {
+        &:first-child {
+          padding-right: 20px;
+          vertical-align: top;
+        }
+        &:last-child {
+          padding-bottom: 15px;
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .training table tr {
+    display: block;
+    td {
+      display: block;
+      &:last-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
 }

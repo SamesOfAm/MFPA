@@ -12,6 +12,7 @@
     h3 {
       margin-bottom: 0;
       a {
+        display: block;
         color: $dark-blue;
         text-decoration: none;
         text-transform: uppercase;
@@ -32,6 +33,12 @@
       p {
         border-top: 1px solid $bright-blue;
         padding-top: 10px;
+        a {
+          color: $dark-blue;
+          &:hover {
+            color: $bright-blue;
+          }
+        }
       }
     }
     .more a {
@@ -53,7 +60,9 @@
   .layout_latest {
     margin-top: 80px;
     h3 {
+      margin-top: 25px;
       a {
+        display: block;
         color: #0d2067;
         text-decoration: none;
         text-transform: uppercase;
@@ -69,8 +78,16 @@
     .ce_text {
       margin-top: 0;
       margin-bottom: 0;
+      width: initial;
       p {
         color: $bright-blue;
+        a {
+          color: $dark-blue;
+          transition: color 250ms;
+          &:hover {
+            color: $bright-blue;
+          }
+        }
       }
     }
     .more a {
@@ -122,6 +139,9 @@
   .news-list {
     .ce_text {
       width: 100%;
+      p a {
+        display: inline;
+      }
     }
     a {
       display: block;

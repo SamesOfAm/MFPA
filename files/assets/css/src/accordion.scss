@@ -5,7 +5,7 @@
   max-width: $small-width;
   margin: 40px auto;
   .accordion {
-    width: $small-width;
+    max-width: $small-width;
     margin: 0 auto;
     .ce_text {
       width: initial;
@@ -61,7 +61,7 @@
   }
   h4 {
     padding-right: 40px;
-    margin-bottom: 0;
+    margin: 0;
   }
   p {
     text-transform: none;
@@ -73,6 +73,32 @@
 
 .ce_accordionStart {
   width: 80%;
-  max-width: $content-width;
+  max-width: $small-width;
   margin: 0 auto;
+}
+
+@media screen and (max-width: $tablet) {
+  .ce_accordion {
+    overflow: visible;
+    margin-bottom: 80px;
+  }
+
+  .toggler {
+    padding-right: 0;
+    &:after {
+      top: 100%;
+      left: 0;
+      transform: none;
+    }
+    &.active:after {
+      transform: rotate(180deg);
+    }
+    h4 {
+      padding-right: 0;
+    }
+  }
+
+  .accordion > *:first-child {
+    margin-top: 70px;
+  }
 }

@@ -8,7 +8,7 @@ header .inside {
 }
 
 .mobile_menu .inner .menu-header .mod_customnav {
-  width: 500px;
+  width: 545px;
   margin-right: 25px;
   ul {
     width: 100%;
@@ -152,6 +152,9 @@ header .inside {
     }
     &:last-child {
       font-size: 18px;
+    }
+    &:hover {
+      color: $bright-blue;
     }
   }
 }
