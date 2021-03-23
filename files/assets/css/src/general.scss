@@ -111,6 +111,12 @@ h5 {
   }
 }
 
+.mod_article > .ce_headline {
+  width: 80%;
+  max-width: $small-width;
+  margin: 40px auto;
+}
+
 ul {
   margin: 0;
   padding: 0;

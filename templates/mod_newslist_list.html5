@@ -1,7 +1,6 @@
 <div class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?>style="<?php echo $this->style; ?>"<?php endif; ?>>
 
     <?php if ($this->headline): ?><div class="ce_text text-centered"><<?php echo $this->hl; ?> class="text-centered"><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
-    <p class="subheadline">Wir setzen Qualitätsstandards durch Aus- und Weiterbildung, Lehre und Zertifizierung. Wir fördern den wissenschaftlichen Dialog und stehen für kooperative Zusammenarbeit in Netzwerken und mit Partnern.</p>
 </div>
 <?php endif; ?>
 
