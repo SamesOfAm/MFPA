@@ -9,7 +9,7 @@
                     <?php $this->block('item'); ?>
                         <section class="ce_accordionSingle ce_accordion block">
                             <div class="toggler ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons" role="tab" id="ui-id-1" aria-controls="ui-id-2" aria-selected="false" aria-expanded="false" tabindex="0">
-                                <h4><?= $arrItem['raw']['title']['value']; ?></h4>
+                                <?= $arrItem['raw']['title']['value']; ?>
                             </div>
                             <div class="accordion item <?= $arrItem['class'] ?>">
                                 <table>
@@ -35,8 +35,8 @@
                                             <?php if($arrItem['raw']['date2from']['value']): ?><?= strftime("%d. %B %Y", $arrItem['raw']['date2from']); ?><?php endif; ?> <?php if($arrItem['raw']['date2to']['value']): ?>-
                                             <?= strftime("%d. %B %Y", $arrItem['raw']['date2to']); ?><br><br><?php endif; ?>
                                             <?php if($arrItem['raw']['date3desc']['value']): ?><?= nl2br($arrItem['raw']['date3desc']['value']); ?>:<br><?php endif; ?>
-                                            <?php if($arrItem['raw']['date3from']['value']): ?><?= strftime("%d. %B %Y", $arrItem['raw']['date3from']['value']); ?><?php endif; ?> <?php if($arrItem['raw']['date3to']['value']): ?>-
-                                            <?= strftime("%d. %B %Y", $arrItem['raw']['date3to']['value']); ?><?php endif; ?>
+                                            <?php if($arrItem['raw']['date3from']['value']): ?><?= strftime("%d. %B %Y", $arrItem['raw']['date3from']); ?><?php endif; ?> <?php if($arrItem['raw']['date3to']['value']): ?>-
+                                            <?= strftime("%d. %B %Y", $arrItem['raw']['date3to']); ?><?php endif; ?>
                                         </td>
                                     </tr>
                                     <?php if($arrItem['raw']['audience']): ?><tr>
