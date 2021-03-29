@@ -39,7 +39,7 @@ h2.ce_headline.text-centered {
 }
 
 .after-h2.ce_text {
-  margin-top: 80px;
+  margin-top: 150px;
 }
 
 .h2link {
@@ -92,6 +92,9 @@ h5 {
   width: 80%;
   max-width: $small-width;
   margin: 40px auto;
+  h3:first-child {
+    margin-top: 0;
+  }
   &.text-centered {
     text-align: center;
     overflow: visible;
