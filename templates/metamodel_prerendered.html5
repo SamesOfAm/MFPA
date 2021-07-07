@@ -64,7 +64,7 @@
                                 </p>
                                 <?php if($arrItem['text']['paper'] !== NULL): ?>
                                     <p>
-                                        <span><a target="_blank" href="<?= $arrItem['text']['paper'] ?>">&rarr; Download Abhandlung</a></span><br>
+                                        <span><a target="_blank" href="<?= $arrItem['text']['paper'] ?>">&rarr; Projektsteckbrief</a></span><br>
                                     </p>
                                 <?php endif; ?>
                                 <div class="close-button">
