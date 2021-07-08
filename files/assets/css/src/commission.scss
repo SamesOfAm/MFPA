@@ -29,3 +29,13 @@
     align-self: center;
   }
 }
+
+@media screen and (max-width: $tablet) {
+  .commission-list table td {
+    width: 100%;
+    display: block;
+    &:first-child {
+      padding-bottom: 0;
+    }
+  }
+}

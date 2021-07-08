@@ -156,6 +156,12 @@ main {
   color: white;
   background: url('../layout/layer-bg.png') no-repeat -350px bottom, url('../layout/stripe-bg-large.png') repeat-x 0 -150px, linear-gradient(to right, $dark-blue, $dark-blue 60%, $bright-blue);
   padding: 50px 0;
+  .h2link a {
+    color: white;
+  }
+  .research-buttons .research-text a:hover {
+    color: white;
+  }
 }
 
 .research-development-white {
@@ -232,6 +238,7 @@ main {
   width: 80%;
   max-width: $content-width;
   margin: 0 auto;
+  text-align: center;
 }
 
 .portfolio-entry {
