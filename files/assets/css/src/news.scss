@@ -131,6 +131,15 @@
   }
 }
 
+.news-home-date {
+  margin-top: 10px;
+  display: inline-block;
+  background: #00aeef;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 3px;
+}
+
 @media screen and (max-width: $tablet) {
   .news-articles .layout_latest {
     width: 100%;

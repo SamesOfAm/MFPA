@@ -64,7 +64,10 @@ footer {
 .info-footer {
   a {
     color: white;
-    text-decoration: none;
+    text-decoration: underline;
+    &:hover {
+      color: $bright-blue;
+    }
   }
 }
 
